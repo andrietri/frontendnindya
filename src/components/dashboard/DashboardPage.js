@@ -70,7 +70,7 @@ class DashboardPage extends Component {
                                     <a className="nav-link" href="/laporan">Laporan</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">Login</a>
+                                    <a className="nav-link" href="/">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -82,7 +82,11 @@ class DashboardPage extends Component {
                     <br/>
                     <br/>
                     
-                    <div id="chartContainer" style={{ height: '300px', width: '100%' }}></div>
+                    <div className="card">
+                        <div className="card-body" style={{ boxShadow: '10px 10px 5px grey' }}>
+                            <div id="chartContainer" style={{ height: '300px', width: '100%' }}></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="container">
@@ -90,43 +94,47 @@ class DashboardPage extends Component {
                     <br/>
 
                     <div className="row">
-                        <div className="panel panel-primary filterable">
-                            <div className="panel-heading">
-                                <h3 className="panel-title">Tabel Produk</h3>
-                                <br/>
-                                <button className="btn btn-default btn-xs btn-filter">
-                                    <i className="fa fa-filter" aria-hidden="true"></i>
-                                    &nbsp;Filter
-                                </button>
-                            </div>
-                            <table className="table">
-                                <thead>
-                                    <tr className="filters">
-                                        <th><input type="text" className="form-control" placeholder="#" disabled/></th>
-                                        <th><input type="text" className="form-control" placeholder="Tanggal" disabled/></th>
-                                        <th><input type="text" className="form-control" placeholder="Wilayah" disabled/></th>
-                                        <th><input type="text" className="form-control" placeholder="Produksi" disabled/></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    { this.state.data.map( (datasa,i) => { 
-                                        return (
-                                            <tr key={i}>
-                                                <td>{ i+1 }</td>
-                                                <td>{ datasa.tanggal }</td>
-                                                <td>{ datasa.wilayah }</td>
-                                                <td>{ datasa.produksi }</td>
+                        <div className="card">
+                            <div className="card-body" style={{ boxShadow: '10px 10px 5px grey' }}>
+                                <div className="panel panel-primary filterable">
+                                    <div className="panel-heading">
+                                        <h3 className="panel-title">Tabel Produk</h3>
+                                        <br/>
+                                        <button className="btn btn-default btn-xs btn-filter">
+                                            <i className="fa fa-filter" aria-hidden="true"></i>
+                                            &nbsp;Filter
+                                        </button>
+                                    </div>
+                                    <table className="table">
+                                        <thead>
+                                            <tr className="filters">
+                                                <th><input type="text" className="form-control" placeholder="#" disabled/></th>
+                                                <th><input type="text" className="form-control" placeholder="Tanggal" disabled/></th>
+                                                <th><input type="text" className="form-control" placeholder="Wilayah" disabled/></th>
+                                                <th><input type="text" className="form-control" placeholder="Produksi" disabled/></th>
                                             </tr>
-                                        )
-                                    })}
-                                </tbody>
-                            </table>
-                            <br/>
-                            <br/>
-                            <br/>
+                                        </thead>
+                                        <tbody>
+                                            { this.state.data.map( (datasa,i) => { 
+                                                return (
+                                                    <tr key={i}>
+                                                        <td>{ i+1 }</td>
+                                                        <td>{ datasa.tanggal }</td>
+                                                        <td>{ datasa.wilayah }</td>
+                                                        <td>{ datasa.produksi }</td>
+                                                    </tr>
+                                                )
+                                            })}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <br/>
+                <br/>
+                <br/>
                 {/* <!-- /.container --> */}
             </>
         )

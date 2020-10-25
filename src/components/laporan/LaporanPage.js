@@ -69,7 +69,7 @@ class LaporanPage extends Component {
                                     <span className="sr-only">(current)</span>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/">Login</a>
+                                    <a className="nav-link" href="/">Logout</a>
                                 </li>
                             </ul>
                         </div>
