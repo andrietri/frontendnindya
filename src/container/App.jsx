@@ -20,7 +20,7 @@ class App extends Component {
         return (
             <Router history={hist}>
                 {/* <Switch> */}
-                    <Route path="/login" component={LoginPage} />
+                    <Route exact path="/" component={LoginPage} />
                     <Route path="/dashboard" component={DashboardPage} />
                     <Route path="/laporan" component={LaporanPage} />
                 {/* </Switch> */}

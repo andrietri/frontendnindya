@@ -70,7 +70,7 @@ class DashboardPage extends Component {
                                     <a className="nav-link" href="/laporan">Laporan</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/login">Login</a>
+                                    <a className="nav-link" href="/">Login</a>
                                 </li>
                             </ul>
                         </div>
