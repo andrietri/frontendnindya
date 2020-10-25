@@ -8,6 +8,7 @@ import {
 
 import LoginPage from 'components/login/LoginPage'
 import DashboardPage from 'components/dashboard/DashboardPage'
+import LaporanPage from 'components/laporan/LaporanPage'
 
 //? layouts
 // import AdminLayout from 'layouts/Admin.jsx'
@@ -21,6 +22,7 @@ class App extends Component {
                 {/* <Switch> */}
                     <Route path="/login" component={LoginPage} />
                     <Route path="/dashboard" component={DashboardPage} />
+                    <Route path="/laporan" component={LaporanPage} />
                 {/* </Switch> */}
             </Router>
         )

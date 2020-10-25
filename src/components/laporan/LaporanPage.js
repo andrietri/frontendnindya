@@ -2,18 +2,15 @@ import React, {
     Component
 } from 'react';
 
-import './Dashboard.css';
-
 const bgColor = {
     backgroundColor: '#cd6133'
 }
 
-class DashboardPage extends Component {
+class LaporanPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [
-                {
+            data: [{
                     tanggal: '20/10/2020',
                     wilayah: 'Wilayah 1',
                     produksi: '100000'
@@ -43,6 +40,8 @@ class DashboardPage extends Component {
     }
 
     render() {
+        let totalProduksi = 0;
+
         return (
             <>
                 {/* <!-- Navigation --> */}
@@ -61,13 +60,13 @@ class DashboardPage extends Component {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarResponsive">
                             <ul className="navbar-nav ml-auto">
-                                <li className="nav-item active">
+                                <li className="nav-item">
                                     <a className="nav-link" href="/dashboard">Dashboard
-                                        <span className="sr-only">(current)</span>
                                     </a>
                                 </li>
-                                <li className="nav-item">
+                                <li className="nav-item active">
                                     <a className="nav-link" href="/laporan">Laporan</a>
+                                    <span className="sr-only">(current)</span>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="/login">Login</a>
@@ -77,60 +76,31 @@ class DashboardPage extends Component {
                     </div>
                 </nav>
 
-                {/* <!-- Page Content --> */}
+                 {/* <!-- Page Content --> */}
                 <div className="container">
                     <br/>
                     <br/>
-                    
-                    <div id="chartContainer" style={{ height: '300px', width: '100%' }}></div>
-                </div>
-
-                <div className="container">
-                    <br/>
-                    <br/>
-
                     <div className="row">
-                        <div className="panel panel-primary filterable">
-                            <div className="panel-heading">
-                                <h3 className="panel-title">Tabel Produk</h3>
-                                <br/>
-                                <button className="btn btn-default btn-xs btn-filter">
-                                    <i className="fa fa-filter" aria-hidden="true"></i>
-                                    &nbsp;Filter
-                                </button>
-                            </div>
-                            <table className="table">
-                                <thead>
-                                    <tr className="filters">
-                                        <th><input type="text" className="form-control" placeholder="#" disabled/></th>
-                                        <th><input type="text" className="form-control" placeholder="Tanggal" disabled/></th>
-                                        <th><input type="text" className="form-control" placeholder="Wilayah" disabled/></th>
-                                        <th><input type="text" className="form-control" placeholder="Produksi" disabled/></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    { this.state.data.map( (datasa,i) => { 
-                                        return (
-                                            <tr key={i}>
-                                                <td>{ i+1 }</td>
-                                                <td>{ datasa.tanggal }</td>
-                                                <td>{ datasa.wilayah }</td>
-                                                <td>{ datasa.produksi }</td>
-                                            </tr>
-                                        )
-                                    })}
-                                </tbody>
-                            </table>
-                            <br/>
-                            <br/>
-                            <br/>
-                        </div>
+                        <h3 className="panel-title">Laporan Produk</h3>
+                    </div>
+                    <div className="row">
+                        <br/>
+                        <ul>
+                            { this.state.data.map( (datasa,i) => { 
+                                totalProduksi += parseInt(datasa.produksi);
+                                return (
+                                    <li style={{ marginBottom: '8px', marginTop: '8px' }}>Pada tanggal {datasa.tanggal} {datasa.wilayah} memiliki produksi {datasa.produksi}</li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                    <div className="row">
+                        <h4>Jumlah Produksi {totalProduksi} </h4>
                     </div>
                 </div>
-                {/* <!-- /.container --> */}
             </>
         )
     }
 }
 
-export default DashboardPage
+export default LaporanPage
